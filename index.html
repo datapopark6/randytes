@@ -1,19 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <script src="https://pannellum.org/js/pannellum.js"></script>
-  <link href="https://pannellum.org/css/pannellum.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Panorama 360 Sederhana</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    
+    <style>
+        /* 2. Gaya untuk kontainer panorama */
+        #panorama {
+            width: 100%;       /* Lebar penuh layar */
+            height: 500px;      /* Tinggi tetap (bisa disesuaikan) */
+            background-color: #f0f0f0; /* Warna latar sebelum gambar dimuat */
+            margin: 0 auto;    /* Ratakan tengah */
+        }
+        
+        /* Gaya tambahan agar halaman terlihat rapi (opsional) */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-<div id="panorama" style="width:100%;height:500px;"></div>
+    <h1>Pratinjau Foto 360 Sederhana</h1>
+    
+    <div id="panorama"></div>
+    
+    <p>Klik dan seret gambar untuk melihat sekeliling. Gunakan scroll mouse untuk zoom.</p>
 
-<script>
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "giri.jpg"
-});
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    
+    <script>
+        // 5. Konfigurasi dan inisialisasi Pannellum
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",  // Jenis gambar (hampir selalu ini)
+            
+            // URL gambar contoh dari Pannellum. Ganti ini dengan gambar Anda!
+            "panorama": "giri.jpg", 
+            
+            "autoLoad": true,          // Muat otomatis gambar saat halaman terbuka
+            "autoRotate": -2,          // Opsional: Putar otomatis perlahan (- untuk kiri)
+            "showControls": true       // Tampilkan tombol zoom dan fullscreen
+        });
+    </script>
 
 </body>
 </html>

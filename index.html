@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preview Panorama 360 Sederhana</title>
+    <title>Preview Panorama 360 Giri</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     
@@ -11,43 +11,49 @@
         /* 2. Gaya untuk kontainer panorama */
         #panorama {
             width: 100%;       /* Lebar penuh layar */
-            height: 500px;      /* Tinggi tetap (bisa disesuaikan) */
-            background-color: #f0f0f0; /* Warna latar sebelum gambar dimuat */
-            margin: 0 auto;    /* Ratakan tengah */
+            height: 80vh;      /* Tinggi 80% dari tinggi layar (viewport height) */
+            background-color: #f0f0f0;
+            margin: 0 auto;
         }
         
-        /* Gaya tambahan agar halaman terlihat rapi (opsional) */
+        /* Gaya tambahan agar halaman terlihat rapi */
         body {
             font-family: sans-serif;
             text-align: center;
+            margin: 0;
             padding: 20px;
         }
         h1 {
             color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Pratinjau Foto 360 Sederhana</h1>
+    <h1>Pratinjau Foto 360 - Giri</h1>
     
     <div id="panorama"></div>
     
-    <p>Klik dan seret gambar untuk melihat sekeliling. Gunakan scroll mouse untuk zoom.</p>
+    <p>Klik dan seret pada gambar untuk melihat sekeliling.</p>
 
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     
     <script>
-        // 5. Konfigurasi dan inisialisasi Pannellum
+        // 5. Konfigurasi untuk memuat gambar 'giri.png'
         pannellum.viewer('panorama', {
-            "type": "equirectangular",  // Jenis gambar (hampir selalu ini)
+            "type": "equirectangular",  // Format panorama standar
             
-            // URL gambar contoh dari Pannellum. Ganti ini dengan gambar Anda!
-            "panorama": "giri.jpg", 
+            // Perubahan di sini: Menggunakan file lokal giri.png
+            "panorama": "giri.png", 
             
-            "autoLoad": true,          // Muat otomatis gambar saat halaman terbuka
-            "autoRotate": -2,          // Opsional: Putar otomatis perlahan (- untuk kiri)
-            "showControls": true       // Tampilkan tombol zoom dan fullscreen
+            "autoLoad": true,          // Muat otomatis
+            "autoRotate": -1,          // Putar otomatis perlahan ke kiri
+            "showControls": true       // Tampilkan tombol kontrol
         });
     </script>
 
